@@ -18,7 +18,7 @@ print.linreg <- function(x,...){
   data_name <- x$data_name
   formula_str = Reduce(paste, deparse(x$formula))
   cat("Call:\n")
-  cat(paste("linreg(formula = ",formula_str,", data = ", data_name,")\n\n",sep=""))
+  cat(paste("linreg(formula = ",formula_str,", data = ", data_name,")\n",sep=""))
   cat("Coefficients:\n")
   print(x$reg_coef)
 }
@@ -84,24 +84,27 @@ pred.linreg <- function(x){
 #' @param object linreg object
 #' @param ... other arguments
 #' @return named vector of coefficients.
-coef.linreg <- function(object, ...){
-  return(object$reg_coef)
+coef<-function(x,...)UseMethod("coef")
+coef.linreg <- function(x){
+  return(x$reg_coef)
 }
 
 
 
 #' @title A method that creates a summary of the linreg-function
 #' @description A method that creates a summary of the linreg-function
-#' @param object linreg object
+#' @param x linreg object
 #' @param ... other arguments
 #' @return linreg_summary object, can be printed.
-summary.linreg <- function(object, ...){
-  tmp = c(as.matrix(object$reg_coef),as.matrix(object$var_reg_coef),object$t_each_coef,object$p_values)
-  tmp = matrix(tmp,nrow=length(object$reg_coef))
-  tmp = cbind(tmp,1:length(object$reg_coef))
+summary<-function(x,...)UseMethod("summary")
+summary.linreg <- function(x){
+  tmp = c(as.matrix(x$reg_coef),as.matrix(x$var_reg_coef),x$t_each_coef,x$p_values)
+  tmp = matrix(tmp,nrow=length(x$reg_coef))
+  tmp = cbind(tmp,1:length(x$reg_coef))
+  tmp=round(tmp,4)
   tmp = as.data.frame(tmp)
-  p =object$p_values
-  for(i in 1:length(object$reg_coef)){
+  p =x$p_values
+  for(i in 1:length(x$reg_coef)){
     if(p[i]>=0&&p[i]<0.001){
       tmp[i,5]<-"***"
     }else if(
@@ -120,41 +123,22 @@ summary.linreg <- function(object, ...){
     tmp
   }
 
-  rownames(tmp) = names(object$reg_coef)
+  rownames(tmp) = names(x$reg_coef)
   colnames(tmp) = c("Estimate", "Std. Error", "t value", "Pr(>|t|)","")
 
-  summary = list()
-  summary$coefficients = tmp
-  summary$df = object$deg_free
-  summary$rse = round(sqrt(object$res_var),4)
-  summary$formula = Reduce(paste, deparse(object$formula))
-  summary$data_name=object$data_name
-  class(summary) <- 'linreg_summary'
-  return(summary)
-}
-
-
-
-#' @title Method for printing a summary of the results from the linreg function
-#' @description Method for printing a summary of the results from the linreg function
-#' @param x linreg object
-#' @param ... other arguments
-print.linreg_summary <- function(x, ...){
-
-  cat("Call:\n")
-  cat(paste("linreg(formula = ",x$formula,", data = ", x$data_name,")\n\n",sep=""))
-
-  cat('Coefficients: \n')
-  print(x$coefficients)
-  cat('--- \n')
-  cat("Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 \n\n")
-
+  cat("Call:","\n")
+  cat(paste("linreg(formula = ",x$formula,", data = ",x$data_name,")",sep="")[3])
+  cat("\n")
+  cat("Coefficients:", "\n")
+  print(tmp)
   cat(paste(
     'Residual standard error:',
-    round(x$rse,4),
+    round(sqrt(x$res_var),4),
     'on',
-    x$df,
+    x$deg_free,
     'degrees of freedom'
   ))
   cat('\n')
 }
+
+
