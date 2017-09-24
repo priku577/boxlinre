@@ -2,7 +2,7 @@
 % Please edit documentation in R/methods.R
 \name{print.linreg}
 \alias{print.linreg}
-\title{Method for printing the coefficients and coefficient names.}
+\title{Method for printing the coefficients and coefficient names}
 \usage{
 \method{print}{linreg}(x, ...)
 }
@@ -12,5 +12,5 @@
 \item{...}{other arguments}
 }
 \description{
-Method for printing the coefficients and coefficient names.
+Method for printing the coefficients and coefficient names
 }

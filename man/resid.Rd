@@ -2,7 +2,7 @@
 % Please edit documentation in R/methods.R
 \name{resid}
 \alias{resid}
-\title{A method that returns the vector of residuals.}
+\title{A method that returns the vector of residuals}
 \usage{
 resid(x, ...)
 }
@@ -15,5 +15,5 @@ resid(x, ...)
 vector of residuals.
 }
 \description{
-A function that check the residulas from an object of class linreg.
+A function that check the residulas from an object of class linreg
 }

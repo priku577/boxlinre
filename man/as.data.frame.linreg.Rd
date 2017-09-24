@@ -2,7 +2,7 @@
 % Please edit documentation in R/methods.R
 \name{as.data.frame.linreg}
 \alias{as.data.frame.linreg}
-\title{A function that creates a data frame from an object of class linreg.}
+\title{A function that creates a data frame from an object of class linreg}
 \usage{
 \method{as.data.frame}{linreg}(x, ...)
 }
@@ -15,5 +15,5 @@
 data.frame contains fitted values and residuals.
 }
 \description{
-A function that creates a data frame from an object of class linreg.
+A function that creates a data frame from an object of class linreg
 }

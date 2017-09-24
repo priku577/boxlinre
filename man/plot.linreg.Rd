@@ -2,7 +2,7 @@
 % Please edit documentation in R/methods.R
 \name{plot.linreg}
 \alias{plot.linreg}
-\title{The plot-method that creates two plots.}
+\title{The plot-method that creates two plots}
 \usage{
 \method{plot}{linreg}(x, ...)
 }
@@ -13,4 +13,7 @@
 }
 \value{
 ggplot2 figures
+}
+\description{
+The plot-method that creates two plots
 }

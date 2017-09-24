@@ -2,7 +2,7 @@
 % Please edit documentation in R/methods.R
 \name{coef.linreg}
 \alias{coef.linreg}
-\title{A method that returns the coefficients as a named vector.}
+\title{A method that returns the coefficients as a named vector}
 \usage{
 \method{coef}{linreg}(object, ...)
 }
@@ -13,4 +13,7 @@
 }
 \value{
 named vector of coefficients.
+}
+\description{
+A method that returns the coefficients as a named vector
 }

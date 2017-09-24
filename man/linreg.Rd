@@ -17,6 +17,3 @@ a list.
 \description{
 Multiple Linear Regression.
 }
-\examples{
-linreg(eruptions~waiting, faithful)
-}

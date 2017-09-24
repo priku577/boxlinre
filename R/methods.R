@@ -1,5 +1,5 @@
-#' @title A function that creates a data frame from an object of class linreg.
-#' @description A function that creates a data frame from an object of class linreg.
+#' @title A function that creates a data frame from an object of class linreg
+#' @description A function that creates a data frame from an object of class linreg
 #' @param x linreg object
 #' @param ... other arguments
 #' @return data.frame contains fitted values and residuals.
@@ -10,8 +10,8 @@ as.data.frame.linreg <- function(x, ...) {
 
 
 
-#' @title Method for printing the coefficients and coefficient names.
-#' @description Method for printing the coefficients and coefficient names.
+#' @title Method for printing the coefficients and coefficient names
+#' @description Method for printing the coefficients and coefficient names
 #' @param x linreg object
 #' @param ... other arguments
 print.linreg <- function(x,...){
@@ -25,8 +25,8 @@ print.linreg <- function(x,...){
 
 
 
-#' @title The plot-method that creates two plots.
-#' @description The plot-method that creates two plots.
+#' @title The plot-method that creates two plots
+#' @description The plot-method that creates two plots
 #' @importFrom gridExtra grid.arrange
 #' @param x linreg object
 #' @param ... other arguments
@@ -53,16 +53,15 @@ plot.linreg <- function(x, ...) {
     ylab("sqrt(|Standardized residuals|)") +
     ggtitle("Scale-Location")+
     stat_summary(aes(x=fitted,group=1),fun.y=median, colour="red", geom="line")
-  return(gridExtra::grid.arrange(p1,p2,ncol=1,newpage=F))}
+  return(grid.arrange(p1,p2,ncol=1,newpage=F))}
 
 
 
-#' @title A method that returns the vector of residuals.
-#' @description A function that check the residulas from an object of class linreg.
+#' @title A method that returns the vector of residuals
+#' @description A function that check the residulas from an object of class linreg
 #' @param x linreg object.
 #' @param ... other arguments.
 #' @return vector of residuals.
-#' @method resid
 resid<-function(x,...)UseMethod("resid")
 resid.linreg <- function(x){return(x$resi)
 }
@@ -74,7 +73,6 @@ resid.linreg <- function(x){return(x$resi)
 #' @param x linreg object
 #' @param ... other arguments
 #' @return vector of predictions.
-#' @method pred
 pred<-function(x,...)UseMethod("pred")
 pred.linreg <- function(x){
   return(x$fitted_values)
@@ -82,8 +80,8 @@ pred.linreg <- function(x){
 
 
 
-#' @title A method that returns the coefficients as a named vector.
-#' @description A method that returns the coefficients as a named vector.
+#' @title A method that returns the coefficients as a named vector
+#' @description A method that returns the coefficients as a named vector
 #' @param object linreg object
 #' @param ... other arguments
 #' @return named vector of coefficients.
@@ -93,8 +91,8 @@ coef.linreg <- function(object, ...){
 
 
 
-#' @title A method that creates a summary of the linreg-function.
-#' @description A method that creates a summary of the linreg-function.
+#' @title A method that creates a summary of the linreg-function
+#' @description A method that creates a summary of the linreg-function
 #' @param object linreg object
 #' @param ... other arguments
 #' @return linreg_summary object, can be printed.
@@ -138,8 +136,8 @@ summary.linreg <- function(object, ...){
 
 
 
-#' @title Method for printing a summary of the results from the linreg function.
-#' @description Method for printing a summary of the results from the linreg function.
+#' @title Method for printing a summary of the results from the linreg function
+#' @description Method for printing a summary of the results from the linreg function
 #' @param x linreg object
 #' @param ... other arguments
 print.linreg_summary <- function(x, ...){

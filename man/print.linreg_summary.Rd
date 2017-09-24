@@ -2,7 +2,7 @@
 % Please edit documentation in R/methods.R
 \name{print.linreg_summary}
 \alias{print.linreg_summary}
-\title{Method for printing a summary of the results from the linreg function.}
+\title{Method for printing a summary of the results from the linreg function}
 \usage{
 \method{print}{linreg_summary}(x, ...)
 }
@@ -10,4 +10,7 @@
 \item{x}{linreg object}
 
 \item{...}{other arguments}
+}
+\description{
+Method for printing a summary of the results from the linreg function
 }

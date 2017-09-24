@@ -2,7 +2,7 @@
 % Please edit documentation in R/methods.R
 \name{summary.linreg}
 \alias{summary.linreg}
-\title{A method that creates a summary of the linreg-function.}
+\title{A method that creates a summary of the linreg-function}
 \usage{
 \method{summary}{linreg}(object, ...)
 }
@@ -13,4 +13,7 @@
 }
 \value{
 linreg_summary object, can be printed.
+}
+\description{
+A method that creates a summary of the linreg-function
 }
