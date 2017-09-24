@@ -27,7 +27,6 @@ print.linreg <- function(x,...){
 
 #' @title The plot-method that creates two plots.
 #' @description The plot-method that creates two plots.
-#' @import ggplot2
 #' @importFrom gridExtra grid.arrange
 #' @param x linreg object
 #' @param ... other arguments
