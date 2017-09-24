@@ -81,7 +81,7 @@ pred.linreg <- function(x){
 
 #' @title A method that returns the coefficients as a named vector
 #' @description A method that returns the coefficients as a named vector
-#' @param object linreg object
+#' @param x linreg object
 #' @param ... other arguments
 #' @return named vector of coefficients.
 coef<-function(x,...)UseMethod("coef")

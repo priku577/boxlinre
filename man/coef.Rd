@@ -7,9 +7,9 @@
 coef(x, ...)
 }
 \arguments{
-\item{...}{other arguments}
+\item{x}{linreg object}
 
-\item{object}{linreg object}
+\item{...}{other arguments}
 }
 \value{
 named vector of coefficients.
