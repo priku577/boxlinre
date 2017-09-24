@@ -1,2 +1,2 @@
 # boxlinre
-https://travis-ci.org/boxizhang/boxlinre.svg?branch=master
+![Build Status](https://travis-ci.org/boxizhang/boxlinre.svg?branch=master)
