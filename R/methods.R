@@ -26,7 +26,9 @@ print.linreg <- function(x,...){
 
 
 #' @title The plot-method that creates two plots.
+#' @description The plot-method that creates two plots.
 #' @import ggplot2
+#' @importFrom gridExtra grid.arrange
 #' @param x linreg object
 #' @param ... other arguments
 #' @return ggplot2 figures
@@ -77,11 +79,12 @@ resid.linreg <- function(x){return(x$resi)
 pred<-function(x,...)UseMethod("pred")
 pred.linreg <- function(x){
   return(x$fitted_values)
-  }
+}
 
 
 
 #' @title A method that returns the coefficients as a named vector.
+#' @description A method that returns the coefficients as a named vector.
 #' @param object linreg object
 #' @param ... other arguments
 #' @return named vector of coefficients.
@@ -92,6 +95,7 @@ coef.linreg <- function(object, ...){
 
 
 #' @title A method that creates a summary of the linreg-function.
+#' @description A method that creates a summary of the linreg-function.
 #' @param object linreg object
 #' @param ... other arguments
 #' @return linreg_summary object, can be printed.
@@ -136,6 +140,7 @@ summary.linreg <- function(object, ...){
 
 
 #' @title Method for printing a summary of the results from the linreg function.
+#' @description Method for printing a summary of the results from the linreg function.
 #' @param x linreg object
 #' @param ... other arguments
 print.linreg_summary <- function(x, ...){
@@ -146,7 +151,7 @@ print.linreg_summary <- function(x, ...){
   cat('Coefficients: \n')
   print(x$coefficients)
   cat('--- \n')
-  cat("Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 \n\n")
+  cat("Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 \n\n")
 
   cat(paste(
     'Residual standard error:',
