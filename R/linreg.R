@@ -1,11 +1,7 @@
 #' @title boxlinre: A linear regression package in R
-#'
 #' @description A linear regression package in R
-#'
 #' @author Maintainer: Boxi Zhang bossyzhang@gmail.com
-#'
 #' @references \url{https://en.wikipedia.org/wiki/Linear_regression}
-#'
 #' @docType package
 #' @name boxlinre
 NULL
@@ -20,8 +16,6 @@ NULL
 #' @param data data frame, dataset attached to the algorithm.
 #' @export
 #' @return a list.
-#' @examples
-#' linreg(eruptions~waiting, faithful)
 
 linreg <- function (formula, data) {
   stopifnot((class(formula)=="formula") && (class(data)=="data.frame"))
