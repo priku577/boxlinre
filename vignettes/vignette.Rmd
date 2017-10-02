@@ -1,10 +1,10 @@
 ---
-title: "Workflow for boxlinre"
+title: "boxlinre"
 author: "Boxi Zhang, Priya Pullolickal"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Workflow for boxlinre}
+  %\VignetteIndexEntry{boxlinre}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -33,4 +33,3 @@ First the residuals:
 ```{r}
 summary(resid(m))
 ```
-
