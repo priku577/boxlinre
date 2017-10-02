@@ -9,7 +9,6 @@ as.data.frame.linreg <- function(x, ...) {
 }
 
 
-
 #' @title Method for printing the coefficients and coefficient names
 #' @description Method for printing the coefficients and coefficient names
 #' @param x linreg object
@@ -35,23 +34,52 @@ plot.linreg <- function(x, ...) {
   form <- paste("linreg(",form_temp[2],form_temp[1],form_temp[3],")")
   z <- as.data.frame(x)
   p1<-ggplot(z, aes(x=fitted, y=residuals)) +
-    geom_point(shape=1, size=5) +
+    geom_point(shape=1, size=2) +
     xlab(paste("Fitted values",form, sep="\n")) +
     ylab("Residuals") +
     ggtitle("Residuals vs Fitted") +
-    geom_text(aes(label = tail(z$residuals,1), x=max(z$fitted), y=max(z$residuals)), hjust=1.5, size = 3)+
+    geom_text(aes(label = tail(z$residuals,1), x=max(z$fitted), y=max(z$residuals)), hjust=1.5, size = 1)+
     stat_summary(aes(x=fitted,group=1),fun.y=median, colour="red", geom="line")+
-    stat_summary(aes(x=fitted,group=1),fun.y=mean, colour="gray", geom="line",linetype=2)
+    stat_summary(aes(x=fitted,group=1),fun.y=mean, colour="gray", geom="line",linetype=2)+  labs(caption="LiU") +
+    theme(panel.background = element_rect(fill="white"),
+          plot.margin = unit(c(1,1,1,1), "cm"),
+          plot.caption = element_text(size=12, hjust=0.5, margin=margin(t=15),colour="blue"),
+          plot.title = element_text(color="#666666", face="bold", size="15",hjust=0.5),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          axis.line = element_line(color= "#666666", size=0.1),
+          axis.text.x = element_text(color="#666666", size="5"),
+          axis.text.y = element_text(color="#666666", size="5"),
+          axis.title.x = element_text(color="#666666", size="12", face="bold"),
+          axis.title.y = element_text(color="#666666", size="12", face="bold"),
+          axis.ticks.x = element_line(color = "blue", size = 0.3))
 
   mod_residuals <- sqrt(abs(z$residuals / sqrt(x$res_var)))
   z[,3]<-mod_residuals
   colnames(z)[3] <- "mod_residuals"
   p2<-ggplot(z[,c(1,3)], aes(x=fitted, y=mod_residuals)) +
-    geom_point(shape=1, size=5) +
+    geom_point(shape=1, size=2) +
     xlab(paste("Fitted values",form, sep="\n")) +
     ylab("sqrt(|Standardized residuals|)") +
     ggtitle("Scale-Location")+
-    stat_summary(aes(x=fitted,group=1),fun.y=median, colour="red", geom="line")
+    stat_summary(aes(x=fitted,group=1),fun.y=median, colour="red", geom="line")+
+    labs(caption="LiU") +
+    theme(panel.background = element_rect(fill="white"),
+          plot.margin = unit(c(1,1,1,1), "cm"),
+          plot.caption = element_text(size=12, hjust=0.5, margin=margin(t=15),colour="blue"),
+          plot.title = element_text(color="#666666", face="bold", size="15",hjust=0.5),
+          panel.grid.major.y = element_blank(),
+          panel.grid.minor.y = element_blank(),
+          panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          axis.line = element_line(color= "#666666", size=0.1),
+          axis.text.x = element_text(color="#666666", size="5"),
+          axis.text.y = element_text(color="#666666", size="5"),
+          axis.title.x = element_text(color="#666666", size="12", face="bold"),
+          axis.title.y = element_text(color="#666666", size="12", face="bold"),
+          axis.ticks.x = element_line(color = "blue", size = 0.3))
   return(grid.arrange(p1,p2,ncol=1,newpage=F))}
 
 

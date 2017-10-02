@@ -4,10 +4,10 @@ Version: 0.1
 Authors@R: person("Boxi", "Zhang", role = c("aut","cre"),email = "bossyzhang@gmail.com")
 Maintainer: Boxi Zhang <bossyzhang@gmail.com>
 Description: Boxi for lab4.
-Depends: R (>= 3.4.1)
-Imports: ggplot2, gridExtra
+Depends: R (>= 3.2.0)
 License: MIT
 Suggests: ggplot2, testthat, knitr, rmarkdown, gridExtra
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
