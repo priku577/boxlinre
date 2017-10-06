@@ -5,8 +5,9 @@ Authors@R: person("Boxi", "Zhang", role = c("aut","cre"),email = "bossyzhang@gma
 Maintainer: Boxi Zhang <bossyzhang@gmail.com>
 Description: Boxi for lab4.
 Depends: R (>= 3.2.0)
-License: MIT
-Suggests: ggplot2, testthat, knitr, rmarkdown, gridExtra
+License: GPL
+Imports: ggplot2, gridExtra,stats,utils
+Suggests: testthat, knitr, rmarkdown
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

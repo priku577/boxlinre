@@ -2,7 +2,7 @@
 title: "boxlinre"
 author: "Boxi Zhang, Priya Pullolickal"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{boxlinre}
   %\VignetteEngine{knitr::rmarkdown}

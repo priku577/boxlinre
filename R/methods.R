@@ -28,7 +28,12 @@ print.linreg <- function(x,...){
 #' @description The plot-method that creates two plots
 #' @param x linreg object
 #' @param ... other arguments
+#' @import ggplot2
+#' @import stats
+#' @import utils
 #' @return ggplot2 figures
+#' @export
+
 plot.linreg <- function(x, ...) {
   form_temp <- as.character(x$formula)
   form <- paste("linreg(",form_temp[2],form_temp[1],form_temp[3],")")
@@ -80,7 +85,7 @@ plot.linreg <- function(x, ...) {
           axis.title.x = element_text(color="#666666", size="12", face="bold"),
           axis.title.y = element_text(color="#666666", size="12", face="bold"),
           axis.ticks.x = element_line(color = "blue", size = 0.3))
-  return(grid.arrange(p1,p2,ncol=1,newpage=F))}
+  return(gridExtra::grid.arrange(p1,p2,ncol=1,newpage=F))}
 
 
 

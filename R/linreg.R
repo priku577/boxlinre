@@ -20,7 +20,7 @@ NULL
 linreg <- function (formula, data) {
   stopifnot((class(formula)=="formula") && (class(data)=="data.frame"))
 
-  X <- model.matrix(formula, data)
+  X <- stats::model.matrix(formula, data)
 
   y_namn <- all.vars(formula, max.names=1)
 
@@ -45,7 +45,7 @@ linreg <- function (formula, data) {
 
   t_each_coef <- reg_coef / sqrt(diag(var_reg_coef))
 
-  p_values <- 2*pt(-abs(t_each_coef), df = deg_free)
+  p_values <- 2*stats::pt(-abs(t_each_coef), df = deg_free)
 
 
   ret <- list()
