@@ -63,4 +63,16 @@ linreg <- function (formula, data) {
   ret$p_values <- p_values
   return(ret)
 }
+#' @title A function that creates a data frame from an object of class linreg
+#' @description A function that creates a data frame from an object of class linreg
+#' @param x linreg object
+#' @param ... other arguments
+#' @return data.frame contains fitted values and residuals.
+as.data.frame.linreg <- function(x, ...) {
+  datafr <- data.frame(fitted=x$fitted_values, residuals=x$resi)
+  return(datafr)
+}
+
+
+
 

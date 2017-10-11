@@ -1,14 +1,3 @@
-#' @title A function that creates a data frame from an object of class linreg
-#' @description A function that creates a data frame from an object of class linreg
-#' @param x linreg object
-#' @param ... other arguments
-#' @return data.frame contains fitted values and residuals.
-as.data.frame.linreg <- function(x, ...) {
-  datafr <- data.frame(fitted=x$fitted_values, residuals=x$resi)
-  return(datafr)
-}
-
-
 #' @title Method for printing the coefficients and coefficient names
 #' @description Method for printing the coefficients and coefficient names
 #' @param x linreg object
@@ -60,7 +49,7 @@ plot.linreg <- function(x, ...) {
           axis.title.x = element_text(color="#666666", size="12", face="bold"),
           axis.title.y = element_text(color="#666666", size="12", face="bold"),
           axis.ticks.x = element_line(color = "blue", size = 0.3))
-
+  
   mod_residuals <- sqrt(abs(z$residuals / sqrt(x$res_var)))
   z[,3]<-mod_residuals
   colnames(z)[3] <- "mod_residuals"
@@ -155,10 +144,10 @@ summary.linreg <- function(x){
     }
     tmp
   }
-
+  
   rownames(tmp) = names(x$reg_coef)
   colnames(tmp) = c("Estimate", "Std. Error", "t value", "Pr(>|t|)","")
-
+  
   cat("Call:","\n")
   cat(paste("linreg(formula = ",x$formula,", data = ",x$data_name,")",sep="")[3])
   cat("\n")
@@ -173,5 +162,3 @@ summary.linreg <- function(x){
   ))
   cat('\n')
 }
-
-
